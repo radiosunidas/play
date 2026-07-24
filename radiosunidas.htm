@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>RADIOS UNIDAS - PARA EL MUNDO...!</title>
+    <meta name="keywords" content="#RadiosUnidas #PeruRadio #RadioSicuani #RadioCusco #RadioArequipa #Lima" />
+    <meta name="description" content="Somos todas las Radios a Nivel Mundial con la Mejor Programación con selectos locutores con libre expresión" />
+    <meta name="theme-color" content="#53012e" />
+    <meta name="author" content="By: Jose Cutire H." />
+    <meta name="copyright" content="RADIOS UNIDAS - PARA EL MUNDO...!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="RADIOS UNIDAS - PARA EL MUNDO...!" />
+    <meta property="og:url" content="https://radiosunidos.blogspot.com/" />
+    <meta property="og:title" content="RADIOS UNIDAS - PARA EL MUNDO...!" />
+    <meta property="og:description" content="Somos todas las Radios a Nivel Mundial con la Mejor Programación con selectos locutores con libre expresión, tu opción de música variada las 24 hrs 365 días mundial" />
+    <meta property="og:image" content="img/logo.png" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="360" />
+    
+    <!-- ? MANIFEST CORREGIDO Y SIN DUPLICADOS -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/logo.png" />
+    
+    <link href="css/stylec619.css?v=1.0" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css?v=1.0" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/lunaradio-animado.js"></script>
+
+    <style>
+        html, body { 
+            font-family: "Open Sans", sans-serif;
+            height: 100%;
+            margin: 0;
+            color: #000000;
+        }
+
+        /* ? VENTANA DE INSTALACIÓN CORREGIDA */
+        #installPopup {
+            display: none;
+            position: fixed;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(221, 221, 221, 0.95);
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(83,1,46,0.6);
+            z-index: 9999;
+            text-align: center;
+            border-radius: 15px;
+            border: 2px solid #53012e;
+        }
+        #installPopup button {
+            background: #53012e;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        #installPopup button:hover {
+            background: #7a0244;
+        }
+
+        /* ? CHAT FLOTANTE A LA DERECHA */
+        .boton-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #53012e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            z-index: 9998;
+            box-shadow: 0 0 15px rgba(83,1,46,0.5);
+            transition: transform 0.3s;
+        }
+        .boton-chat:hover {
+            transform: scale(1.1);
+        }
+
+        .ventana-chat {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 380px;
+            max-width: 90vw;
+            height: 500px;
+            max-height: 70vh;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0,0,0,0.4);
+            z-index: 9999;
+            overflow: hidden;
+            flex-direction: column;
+            border: 2px solid #53012e;
+        }
+        .cabecera-chat {
+            background: #53012e;
+            color: white;
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+        .btn-cerrar-chat, .btn-maximizar {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 0 8px;
+        }
+        .caja-mensajes {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .mensaje {
+            max-width: 80%;
+            padding: 8px 12px;
+            border-radius: 12px;
+        }
+        .mensaje-yo {
+            background: #53012e;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+        .mensaje-radio {
+            background: #e9ecef;
+            color: #212529;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+        .barra-escribir {
+            display: flex;
+            gap: 8px;
+            padding: 12px;
+            border-top: 1px solid #ddd;
+            background: white;
+        }
+        .barra-escribir input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+        .barra-escribir button {
+            background: #53012e;
+            color: white;
+            border: none;
+            padding: 0 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .barra-escribir button:hover {
+            background: #7a0244;
+        }
+
+        /* Ajustes generales */
+        #player { margin: 20px auto; max-width: 800px; }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9998;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height:100vh">
+        <button type="button" class="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
+        <header id="header">
+            <section>
+                <nav class="nav-menu">
+                    <ul>
+                        <p>Síguenos en</p>
+                        <li>
+                            <a href="https://web.facebook.com/radiosunidasdelmundo" target="_blank"><img src="img/facebook.png" alt="facebook" width="48" height="48"></a>
+                            <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png" alt="instagram" width="48" height="48"></a>
+                            <a href="https://www.tiktok.com/@ecosiente.blogspot.com" target="_blank"><img src="img/tiktok.png" alt="tiktok" width="48" height="48"></a>
+                            <a href="https://chat.whatsapp.com/I9mtoc2m77uCIDCa8XSYiN" target="_blank"><img src="img/whatsapp.png" alt="whatsapp" width="48" height="48"></a>
+                        </li>
+                        <p>Compartir en:</p>
+                        <li>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://radiosunidas.github.io/play/" target="_blank">
+                                <img src="img/compartirfacebook.png" class="pulse" width="70%" height="auto" alt="Compartir en Facebook">
+                            </a>
+                            <a href="https://api.whatsapp.com/send?text=%c2%a1Hola!%20Te%20Invito%20a%20escuchar%20nuestra%20Emisora%20https://radiosunidas.github.io/play/" target="_blank">
+                                <img src="img/compartirwhatsapp.png" class="pulse" width="70%" height="auto" alt="Compartir en WhatsApp">
+                            </a>
+                        </li>
+                        <p>Radios Unidas</p>
+                    </ul>
+                </nav>
+            </section>
+        </header>
+
+        <div id="player"></div>
+        <center><iframe src="cel.html" width="100%" height="0" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe></center>
+    </div>
+
+    <!-- ? CHAT FLOTANTE ACTIVO -->
+    <div class="boton-chat" id="abrirChat">??</div>
+    <div class="ventana-chat" id="ventanaChat">
+        <div class="cabecera-chat">
+            <span>?? CHAT EN VIVO - RADIOS UNIDAS</span>
+            <div>
+                <button class="btn-maximizar" id="btnMaximizar" title="Maximizar">?</button>
+                <button class="btn-cerrar-chat" id="cerrarChat">×</button>
+            </div>
+        </div>
+        <div class="caja-mensajes" id="cajaMensajes">
+            <div class="mensaje mensaje-radio">¡Bienvenidos al chat en vivo! Escribe y saluda a toda la familia radial ???</div>
+        </div>
+        <div class="barra-escribir">
+            <input type="text" id="textoMensaje" placeholder="Escribe tu mensaje..." maxlength="200">
+            <button id="enviarMensaje">Enviar</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div id="installPopup">
+        <p>?? Instala Nuestra Aplicación en Tu Celular o PC</p>
+        <button id="installAppButton">
+            <img src="img/img-instalar-app-android.png" alt="Instalar App" height="48">
+        </button>
+        <div id="iosInstructions" style="display:none;padding-top:10px;font-size:0.9em;">
+            En iPhone: Abre el menú ? ? Compartir ? Agregar a pantalla de inicio
+        </div>
+    </div>
+
+    <footer style="display:grid;align-content:end">
+        <div style="background-color:#000000;color:#fff;text-align:center;padding:10px">
+            &copy; <a href="https://sicuanimantape.blogspot.com" style="color:#ffcc66;text-decoration:none">Desarrollado Por: Jose Cutire.</a> | RADIOS UNIDAS PARA EL MUNDO
+        </div>
+    </footer>
+
+    <script>
+        // ? BLOQUEO CORREGIDO (solo para inspección, no afecta funcionalidad)
+        document.addEventListener("contextmenu", e => e.preventDefault());
+        document.onkeydown = e => {
+            if([123, 73, 85].includes(e.keyCode) && (e.ctrlKey || e.shiftKey)) {
+                alert('Inspección desactivada por seguridad');
+                return false;
+            }
+        };
+
+        // ? REPRODUCTOR CONFIGURADO
+        $("#player").lunaradio({
+            userinterface: "big",
+            backgroundcolor: "rgba(0,17,59,1)",
+            fontcolor: "#ffffff",
+            hightlightcolor: "#53012e",
+            fontname: "Unica One",
+            googlefont: "Unica+One&display=swap",
+            fontratio: "0.6",
+            radioname: "RADIOS UNIDAS - PARA TODO EL MUNDO.",
+            scroll: "true",
+            coverimage: "img/logo.png",
+            onlycoverimage: "false",
+            coverstyle: "animated",
+            usevisualizer: "real",
+            visualizertype: "2",
+            itunestoken: "1000lIPN",
+            streamurl: "https://stream-04.surfernetwork.com/5b3fwcx4sfvuv?",
+            streamtype: "zeno",
+            idzeno: "5b3fwcx4sfvuv",
+            volume: "100",
+            autoplay: "true",
+            debug: "false",
+            usestreamcorsproxy: "true",
+        });
+
+        // ? INSTALACIÓN DE APP MEJORADA
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', e => {
+            e.preventDefault();
+            deferredPrompt = e;
+            setTimeout(() => {
+                document.getElementById('overlay').style.display = 'block';
+                document.getElementById('installPopup').style.display = 'block';
+            }, 1500);
+        });
+
+        document.getElementById('installAppButton').addEventListener('click', async () => {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('installPopup').style.display = 'none';
+            if(deferredPrompt) {
+                deferredPrompt.prompt();
+                await deferredPrompt.userChoice;
+                deferredPrompt = null;
+            }
+        });
+
+        document.getElementById('overlay').addEventListener('click', () => {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('installPopup').style.display = 'none';
+        });
+
+        // ? CHAT FLOTANTE CON MAXIMIZAR
+        const btnChat = document.getElementById('abrirChat');
+        const ventanaChat = document.getElementById('ventanaChat');
+        const btnCerrar = document.getElementById('cerrarChat');
+        const btnMax = document.getElementById('btnMaximizar');
+        const inputMsg = document.getElementById('textoMensaje');
+        const btnEnviar = document.getElementById('enviarMensaje');
+        const cajaMsj = document.getElementById('cajaMensajes');
+
+        let maximizado = false;
+        let tamañoOriginal = {ancho: ventanaChat.style.width, alto: ventanaChat.style.height};
+
+        btnChat.addEventListener('click', () => {
+            ventanaChat.style.display = ventanaChat.style.display === 'flex' ? 'none' : 'flex';
+            cajaMsj.scrollTop = cajaMsj.scrollHeight;
+        });
+
+        btnCerrar.addEventListener('click', () => ventanaChat.style.display = 'none');
+
+        btnMax.addEventListener('click', () => {
+            if(!maximizado) {
+                tamañoOriginal = {ancho: ventanaChat.style.width, alto: ventanaChat.style.height};
+                ventanaChat.style.width = '95vw';
+                ventanaChat.style.height = '90vh';
+                ventanaChat.style.right = '2.5vw';
+                ventanaChat.style.bottom = '5vh';
+                btnMax.textContent = '?';
+                maximizado = true;
+            } else {
+                ventanaChat.style.width = '380px';
+                ventanaChat.style.height = '500px';
+                ventanaChat.style.right = '30px';
+                ventanaChat.style.bottom = '100px';
+                btnMax.textContent = '?';
+                maximizado = false;
+            }
+        });
+
+        function enviarMensaje() {
+            const texto = inputMsg.value.trim();
+            if(!texto) return;
+            const nuevo = document.createElement('div');
+            nuevo.className = 'mensaje mensaje-yo';
+            nuevo.textContent = texto;
+            cajaMsj.appendChild(nuevo);
+            cajaMsj.scrollTop = cajaMsj.scrollHeight;
+            inputMsg.value = '';
+        }
+
+        btnEnviar.addEventListener('click', enviarMensaje);
+        inputMsg.addEventListener('keydown', e => { if(e.key === 'Enter') enviarMensaje(); });
+
+        // Menú móvil
+        $(".mobile-nav-toggle").click(function () {
+            $("body").toggleClass("mobile-nav-active");
+            $(".mobile-nav-toggle i").toggleClass("fa-bars fa-times");
+        });
+    </script>
+</body>
+</html>
