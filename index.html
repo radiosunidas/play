@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 
-    <!-- ✅ VERIFICACIÓN GOOGLE -->
     <meta name="google-site-verification" content="google1ea9cfd81fbd94c8">
-
-    <!-- 🚀 METADATOS PARA INDEXAR -->
     <title>RADIOS UNIDAS - PARA EL MUNDO 📻 Emisoras Peruanas En Vivo</title>
     <meta name="description" content="Radios Unidas: La mejor radio peruana con programación variada, locutores profesionales, noticias y música las 24 horas. Escúchanos desde cualquier parte del mundo.">
     <meta name="keywords" content="radio peruana, radios unidas, radio en vivo, música variada, emisoras peruanas, sicuani, cusco, lima, arequipa, radio online">
@@ -18,7 +15,6 @@
     <meta name="copyright" content="RADIOS UNIDAS - PARA EL MUNDO">
     <meta name="theme-color" content="#53012e">
 
-    <!-- REDES SOCIALES -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="RADIOS UNIDAS - PARA EL MUNDO" />
     <meta property="og:url" content="https://radiosunidos.blogspot.com/" />
@@ -29,7 +25,6 @@
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="360" />
 
-    <!-- ✅ MANIFEST Y PWA - GARANTIZADO -->
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/logo.png" />
@@ -70,7 +65,6 @@
             border-radius: 8px;
         }
 
-        /* 🟣 BURBUJAS MÁS PEQUEÑAS + EFECTO + NOMBRE */
         .burbujas-flotantes {
             position: fixed;
             bottom: 20px;
@@ -105,7 +99,6 @@
             transform: scale(1.15);
             animation: none;
         }
-        /* Nombrecito al pasar */
         .burbuja .etiqueta {
             position: absolute;
             right: 60px;
@@ -125,7 +118,7 @@
         .burbuja.yape { background: #9C27B0; }
         .burbuja.paypal { background: #0070BA; }
 
-        /* 🟢 VENTANAS INTERNAS - BORDE MÁS ATRACTIVO */
+        /* ✅ AJUSTE CLAVE: CHAT SIN BORDES, MÁXIMO ESPACIO */
         .ventana-interna {
             display: none;
             position: fixed;
@@ -137,41 +130,48 @@
             z-index: 2000;
             align-items: center;
             justify-content: center;
+            padding: 0;
+            margin: 0;
         }
         .caja-ventana {
             background: white;
-            width: 90%;
-            max-width: 420px;
-            max-height: 90vh;
-            border-radius: 15px;
+            width: 96%;
+            max-width: 520px;
+            height: 92vh;
+            max-height: 92vh;
+            border-radius: 10px;
             overflow: hidden;
             position: relative;
             box-shadow: 0 0 25px rgba(0,0,0,0.5);
-            border: 3px solid #ffcc66;
+            border: none;
+            margin: 0;
         }
         .cerrar-ventana {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 22px;
-            color: #333;
+            top: 5px;
+            right: 10px;
+            font-size: 26px;
+            color: #fff;
+            background: rgba(0,0,0,0.6);
+            padding: 2px 8px;
+            border-radius: 50%;
             cursor: pointer;
             font-weight: bold;
             z-index: 10;
         }
-        .cerrar-ventana:hover { color: red; }
+        .cerrar-ventana:hover { color: #ff0000; background: rgba(0,0,0,0.8); }
         .contenido-ventana {
-            padding: 20px;
-            max-height: 85vh;
-            overflow-y: auto;
+            padding: 0;
+            width: 100%;
+            height: 100%;
         }
         .contenido-ventana iframe {
             width: 100%;
-            height: 500px;
+            height: 100%;
             border: none;
+            display: block;
         }
 
-        /* PIE DE PÁGINA MÁS COMPACTO */
         .area-sociales {
             background-color: black;
             padding: 12px 0;
@@ -195,7 +195,6 @@
             <section>
                 <nav class="nav-menu">
                     <ul>
-                        <!-- ✅ MENÚ IZQUIERDO: AHORA VAN LAS REDES SOCIALES -->
                         <p>Síguenos en nuestras redes</p>
                         <li style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
                             <a href="https://www.youtube.com/watch?v=g-Z2R9vUUBE" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png" alt="YouTube" width="38" height="38"></a>
@@ -204,7 +203,6 @@
                             <a href="https://chat.whatsapp.com/I9mtoc2m77uCIDCa8XSYiN" target="_blank"><img src="img/whatsapp.png" alt="Grupo WhatsApp" width="38" height="38"></a>
                             <a href="https://www.tiktok.com/@ecosiente.blogspot.com" target="_blank"><img src="img/tiktok.png" alt="TikTok" width="38" height="38"></a>
                         </li>
-
                         <p>Radios Unidas para el Mundo</p>
                     </ul>
                 </nav>
@@ -215,7 +213,6 @@
         <center><iframe src="cel.html" width="100%" height="0" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe></center>
     </div>
 
-    <!-- 🟢 BURBUJAS: AHORA MÁS PEQUEÑAS + NOMBRE + EFECTO -->
     <div class="burbujas-flotantes">
         <a class="burbuja chat" onclick="abrirVentana('ventanaChat');return false;">
             <i class="fas fa-comments"></i>
@@ -231,7 +228,7 @@
         </a>
     </div>
 
-    <!-- 🪟 VENTANAS INTERNAS -->
+    <!-- ✅ VENTANA CHAT: SIN BORDES, LLENA TODO EL ESPACIO -->
     <div id="ventanaChat" class="ventana-interna" onclick="if(event.target==this)cerrarVentana('ventanaChat')">
         <div class="caja-ventana">
             <span class="cerrar-ventana" onclick="cerrarVentana('ventanaChat')">&times;</span>
@@ -264,17 +261,14 @@
     </div>
 
     <script>
-        // 🪟 ABRIR / CERRAR VENTANAS
         function abrirVentana(id){ document.getElementById(id).style.display='flex'; }
         function cerrarVentana(id){ document.getElementById(id).style.display='none'; }
 
-        // 🔒 PROTECCIÓN
         document.addEventListener("contextmenu", e => { e.preventDefault(); alert('🔒 Contenido protegido - Radios Unidas'); });
         document.onkeydown = e => {
             if ([123, 73, 85].includes(e.keyCode) || (e.ctrlKey && e.shiftKey && e.keyCode==73)) { alert('🔒 No permitido'); return false; }
         };
 
-        // 🎵 REPRODUCTOR
         $("#player").lunaradio({
            userinterface: "big", backgroundcolor: "rgba(0,17,59,1)", fontcolor: "#ffffff",
            hightlightcolor: "#53012e", fontname: "Unica One", googlefont: "Unica+One&display=swap",
@@ -286,7 +280,6 @@
            autoplay: "true", debug: "false", usestreamcorsproxy: "true"
         });
 
-        // 📲 PWA INTACTO
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', e => {
             e.preventDefault(); deferredPrompt = e;
@@ -305,14 +298,12 @@
         function isIOS() { return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; }
         if (isIOS()) { document.getElementById('installAppButton').style.display = 'none'; document.getElementById('iosInstructions').style.display = 'block'; }
 
-        // MENÚ
         $(".mobile-nav-toggle").click(function () {
             $("body").toggleClass("mobile-nav-active");
             $(".mobile-nav-toggle i").toggleClass("fa-bars fa-times");
         });
     </script>
 
-    <!-- ✅ PIE DE PÁGINA: AHORA VA COMPARTIR + MÁS COMPACTO -->
     <footer class="area-sociales">
         <p style="color:#fff;margin-bottom:8px;font-weight:bold;font-size:14px;">Comparte con tus amigos</p>
         <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
