@@ -8,7 +8,7 @@
     <!-- ✅ VERIFICACIÓN GOOGLE -->
     <meta name="google-site-verification" content="google1ea9cfd81fbd94c8">
 
-    <!-- 🚀 METADATOS PARA INDEXAR EN PRIMER LUGAR -->
+    <!-- 🚀 METADATOS PARA INDEXAR -->
     <title>RADIOS UNIDAS - PARA EL MUNDO 📻 Emisoras Peruanas En Vivo</title>
     <meta name="description" content="Radios Unidas: La mejor radio peruana con programación variada, locutores profesionales, noticias y música las 24 horas. Escúchanos desde cualquier parte del mundo.">
     <meta name="keywords" content="radio peruana, radios unidas, radio en vivo, música variada, emisoras peruanas, sicuani, cusco, lima, arequipa, radio online">
@@ -29,7 +29,7 @@
     <meta property="og:image:width" content="600" />
     <meta property="og:image:height" content="360" />
 
-    <!-- ARCHIVOS -->
+    <!-- ✅ MANIFEST Y PWA - INTACTO Y GARANTIZADO -->
     <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/logo.png" />
@@ -70,7 +70,7 @@
             border-radius: 8px;
         }
 
-        /* 🟣 BURBUJAS FLOTANTES - LISTAS Y FUNCIONALES */
+        /* 🟣 BURBUJAS FLOTANTES */
         .burbujas-flotantes {
             position: fixed;
             bottom: 25px;
@@ -103,6 +103,51 @@
         .burbuja.yape { background: #9C27B0; }
         .burbuja.paypal { background: #0070BA; }
 
+        /* 🟢 VENTANAS INTERNAS SIN SALIR */
+        .ventana-interna {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .caja-ventana {
+            background: white;
+            width: 90%;
+            max-width: 420px;
+            max-height: 90vh;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+        }
+        .cerrar-ventana {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            color: #333;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .cerrar-ventana:hover { color: red; }
+        .contenido-ventana {
+            padding: 20px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .contenido-ventana iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
         .area-sociales {
             background-color: black;
             padding: 20px 0;
@@ -126,22 +171,17 @@
             <section>
                 <nav class="nav-menu">
                     <ul>
-                        <p>Síguenos en</p>
-                        <li>
-                            <a href="https://web.facebook.com/radiosunidasdelmundo" target="_blank"><img src="img/facebook.png" alt="Facebook" width="48" height="48"></a>
-                            <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png" alt="Instagram" width="48" height="48"></a>
-                            <a href="https://www.tiktok.com/@ecosiente.blogspot.com" target="_blank"><img src="img/tiktok.png" alt="TikTok" width="48" height="48"></a>
-                            <a href="https://chat.whatsapp.com/I9mtoc2m77uCIDCa8XSYiN" target="_blank"><img src="img/whatsapp.png" alt="Grupo WhatsApp" width="48" height="48"></a>
-                        </li>
-                        <p>Compartir en:</p>
-                        <li>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://radiosunidos.blogspot.com/" target="_blank">
-                                <img src="img/compartirfacebook.png" class="pulse" width="70%" height="auto" alt="Compartir en Facebook">
+                        <!-- ✅ ARRIBA: SOLO COMPARTIR - LO MÁS USADO -->
+                        <p>Compartir:</p>
+                        <li style="display:flex; flex-direction:column; gap:12px; align-items:center;">
+                            <a href="https://api.whatsapp.com/send?text=%c2%a1Hola!%20Te%20invito%20a%20escuchar%20RADIOS%20UNIDAS:%20https://radiosunidos.blogspot.com/" target="_blank" style="width:75%; max-width:210px;">
+                                <img src="img/compartirwhatsapp.png" class="pulse" style="width:100%; height:auto;" alt="Compartir en WhatsApp">
                             </a>
-                            <a href="https://api.whatsapp.com/send?text=%c2%a1Hola!%20Te%20invito%20a%20escuchar%20RADIOS%20UNIDAS:%20https://radiosunidos.blogspot.com/" target="_blank">
-                                <img src="img/compartirwhatsapp.png" class="pulse" width="70%" height="auto" alt="Compartir en WhatsApp">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://radiosunidos.blogspot.com/" target="_blank" style="width:75%; max-width:210px;">
+                                <img src="img/compartirfacebook.png" class="pulse" style="width:100%; height:auto;" alt="Compartir en Facebook">
                             </a>
                         </li>
+
                         <p>Radios Unidas para el Mundo</p>
                     </ul>
                 </nav>
@@ -152,20 +192,41 @@
         <center><iframe src="cel.html" width="100%" height="0" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe></center>
     </div>
 
-    <!-- 🟢 BURBUJAS CONFIGURADAS CON TUS DATOS -->
+    <!-- 🟢 BURBUJAS: Chat y Yape ADENTRO, PayPal EXTERNO -->
     <div class="burbujas-flotantes">
-        <!-- Chat: se abre tu archivo chat.html que vas a crear -->
-        <a href="#" class="burbuja chat" title="Chatear con nosotros" onclick="window.open('chat.html','_blank','width=420,height=600,top=80,left=80,scrollbars=yes');return false;">
+        <a class="burbuja chat" title="Chatear con nosotros" onclick="abrirVentana('ventanaChat');return false;">
             <i class="fas fa-comments"></i>
         </a>
-        <!-- Yape: abre ventana con tu QR y número -->
-        <a href="#" class="burbuja yape" title="Donar por Yape" onclick="window.open('yape.html','_blank','width=380,height=520,top=100,left=100');return false;">
+        <a class="burbuja yape" title="Donar por Yape" onclick="abrirVentana('ventanaYape');return false;">
             <i class="fas fa-mobile-alt"></i>
         </a>
-        <!-- PayPal: ya con tu correo y en dólares -->
         <a href="https://www.paypal.com/donate?business=fielangelo@gmail.com&currency_code=USD" target="_blank" class="burbuja paypal" title="Donar por PayPal">
             <i class="fab fa-paypal"></i>
         </a>
+    </div>
+
+    <!-- 🪟 VENTANA INTERNA CHAT -->
+    <div id="ventanaChat" class="ventana-interna" onclick="if(event.target==this)cerrarVentana('ventanaChat')">
+        <div class="caja-ventana">
+            <span class="cerrar-ventana" onclick="cerrarVentana('ventanaChat')">&times;</span>
+            <div class="contenido-ventana">
+                <iframe src="chat.html" title="Chat con nosotros"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🪟 VENTANA INTERNA YAPE -->
+    <div id="ventanaYape" class="ventana-interna" onclick="if(event.target==this)cerrarVentana('ventanaYape')">
+        <div class="caja-ventana">
+            <span class="cerrar-ventana" onclick="cerrarVentana('ventanaYape')">&times;</span>
+            <div class="contenido-ventana" style="text-align:center;">
+                <h2 style="color:#9C27B0;margin:0 0 15px 0;">💛 APOYO CON YAPE</h2>
+                <img src="https://i.imgur.com/cvMmHiM.jpeg" alt="QR Yape" style="width:260px;border-radius:12px;margin:10px 0;border:3px solid #9C27B0;">
+                <p style="font-size:16px;margin:8px 0;">Número: <strong>+51 930 282 895</strong></p>
+                <p style="font-size:16px;margin:8px 0;">A nombre: José Cutire Huayta</p>
+                <a href="yape.pe/930282895" style="display:inline-block;padding:10px 22px;background:#9C27B0;color:white;text-decoration:none;border-radius:25px;font-weight:bold;margin-top:10px;">Ir directo a Yape</a>
+            </div>
+        </div>
     </div>
 
     <div class="overlay" id="overlay"></div>
@@ -178,7 +239,15 @@
     </div>
 
     <script>
-        // 🔒 PROTECCIÓN ACTIVA
+        // 🪟 FUNCIÓN PARA ABRIR Y CERRAR VENTANAS ADENTRO
+        function abrirVentana(id){
+            document.getElementById(id).style.display='flex';
+        }
+        function cerrarVentana(id){
+            document.getElementById(id).style.display='none';
+        }
+
+        // 🔒 PROTECCIÓN
         document.addEventListener("contextmenu", e => {
             e.preventDefault();
             alert('🔒 Contenido protegido - Radios Unidas');
@@ -190,7 +259,7 @@
             }
         };
 
-        // 🎵 REPRODUCTOR INTACTO
+        // 🎵 REPRODUCTOR
         $("#player").lunaradio({
            userinterface: "big",
            backgroundcolor: "rgba(0,17,59,1)",
@@ -216,7 +285,7 @@
            usestreamcorsproxy: "true"
         });
 
-        // 📲 INSTALACIÓN PWA
+        // ✅ INSTALACIÓN PWA - INTACTA Y GARANTIZADA
         let deferredPrompt;
         window.addEventListener('beforeinstallprompt', e => {
             e.preventDefault();
@@ -246,15 +315,17 @@
         });
     </script>
 
+    <!-- ✅ PIE DE PÁGINA: TODAS LAS REDES PARA SEGUIRNOS - SIN REPETIR -->
     <footer class="area-sociales">
+        <p style="color:#fff;margin-bottom:10px;font-weight:bold;">Síguenos en nuestras redes</p>
         <div class="iconos-sociales">
             <a href="https://www.youtube.com/watch?v=g-Z2R9vUUBE" target="_blank"><img loading="lazy" alt="YouTube" height="35" width="35" src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png"></a>
-            <a href="https://www.facebook.com/radiosunidasdelmundo" target="_blank"><img loading="lazy" alt="Facebook" height="35" width="35" src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png"></a>
+            <a href="https://web.facebook.com/radiosunidasdelmundo" target="_blank"><img loading="lazy" alt="Facebook" height="35" width="35" src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png"></a>
             <a href="https://www.instagram.com/" target="_blank"><img loading="lazy" alt="Instagram" height="35" width="35" src="https://cdn-icons-png.flaticon.com/512/3955/3955024.png"></a>
-            <a href="https://chat.whatsapp.com/I9mtoc2m77uCIDCa8XSYiN" target="_blank"><img loading="lazy" alt="WhatsApp" height="35" width="35" src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png"></a>
+            <a href="https://chat.whatsapp.com/I9mtoc2m77uCIDCa8XSYiN" target="_blank"><img loading="lazy" alt="Grupo WhatsApp" height="35" width="35" src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png"></a>
             <a href="https://www.tiktok.com/@ecosiente.blogspot.com" target="_blank"><img loading="lazy" alt="TikTok" height="35" width="35" src="https://cdn-icons-png.flaticon.com/512/4782/4782345.png"></a>
         </div>
-        <div style="background:#000;color:#fff;padding:8px;text-align:center;font-size:0.85rem;">
+        <div style="background:#000;color:#fff;padding:8px;text-align:center;font-size:0.85rem;margin-top:10px;">
             &copy; RADIOS UNIDAS - Desarrollado por José Cutire Huayta
         </div>
     </footer>
