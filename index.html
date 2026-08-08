@@ -1,121 +1,331 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es-PE">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 
+    <!-- ✅ VERIFICACIÓN GOOGLE -->
     <meta name="google-site-verification" content="google1ea9cfd81fbd94c8">
-    <title>RADIOS UNIDAS - PARA EL MUNDO 📻</title>
-    <meta name="description" content="La mejor radio peruana con música variada, noticias y locutores.">
-    <meta name="keywords" content="radio peruana, radios unidas, emisoras online">
-    <meta name="robots" content="index, follow">
+
+    <!-- 🚀 METADATOS PARA INDEXAR -->
+    <title>RADIOS UNIDAS - PARA EL MUNDO 📻 Emisoras Peruanas En Vivo</title>
+    <meta name="description" content="Radios Unidas: La mejor radio peruana con programación variada, locutores profesionales, noticias y música las 24 horas. Escúchanos desde cualquier parte del mundo.">
+    <meta name="keywords" content="radio peruana, radios unidas, radio en vivo, música variada, emisoras peruanas, sicuani, cusco, lima, arequipa, radio online">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://radiosunidos.blogspot.com/">
     <meta name="author" content="José Cutire Huayta">
+    <meta name="copyright" content="RADIOS UNIDAS - PARA EL MUNDO">
     <meta name="theme-color" content="#53012e">
 
+    <!-- REDES SOCIALES -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="RADIOS UNIDAS - PARA EL MUNDO" />
+    <meta property="og:url" content="https://radiosunidos.blogspot.com/" />
+    <meta property="og:title" content="RADIOS UNIDAS - PARA EL MUNDO 📻" />
+    <meta property="og:description" content="Tu radio peruana con la mejor programación las 24 horas del día" />
+    <meta property="og:image" content="img/logo.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="600" />
+    <meta property="og:image:height" content="360" />
+
+    <!-- ✅ MANIFEST Y PWA - GARANTIZADO -->
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="img/logo.png">
-    <link rel="apple-touch-icon" href="img/logo.png">
-    <link href="css/stylec619.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="img/logo.png" />
+    <link href="css/stylec619.css?v=1.0" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css?v=1.0" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/lunaradio-animado.js"></script>
 
     <style>
-        html, body { margin:0; padding:0; font-family:Arial, sans-serif; height:100%; display:flex; flex-direction:column; }
-        #installPopup { position:fixed; bottom:8%; left:50%; transform:translateX(-50%); background:rgba(255,255,255,0.95); padding:15px; border-radius:12px; z-index:1000; text-align:center; }
-        .burbujas-flotantes { position:fixed; bottom:20px; right:15px; z-index:999; display:flex; flex-direction:column; gap:10px; }
-        .burbuja { width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:20px; text-decoration:none; border:2px solid rgba(255,255,255,0.4); animation:parpadeo 2.5s infinite alternate; position:relative; }
-        @keyframes parpadeo { from{box-shadow:0 0 5px rgba(255,255,255,0.3);} to{box-shadow:0 0 15px rgba(255,255,255,0.7);} }
-        .burbuja:hover { transform:scale(1.15); animation:none; }
-        .burbuja .etiqueta { position:absolute; right:60px; background:rgba(0,0,0,0.8); color:white; padding:4px 8px; border-radius:4px; font-size:12px; white-space:nowrap; opacity:0; transition:opacity 0.2s; pointer-events:none; }
-        .burbuja:hover .etiqueta { opacity:1; }
-        .burbuja.chat { background:#25D366; }
-        .burbuja.yape { background:#9C27B0; }
-        .burbuja.paypal { background:#0070BA; }
-        .ventana-interna { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.75); z-index:2000; align-items:center; justify-content:center; }
-        .caja-ventana { background:white; width:90%; max-width:400px; border-radius:12px; border:3px solid #ffcc66; overflow:hidden; position:relative; }
-        .cerrar-ventana { position:absolute; top:8px; right:12px; font-size:20px; color:#333; cursor:pointer; font-weight:bold; }
-        .contenido-ventana { padding:15px; }
+        html, body { 
+            font-family: "Open Sans", sans-serif;
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            color: #000000;
+        }
+        #installPopup {
+            display: none;
+            position: fixed;
+            bottom: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(221, 221, 221, 0.95);
+            padding: 18px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.6);
+            z-index: 1000;
+            text-align: center;
+            border-radius: 15px;
+        }
+        #installPopup button {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+
+        /* 🟣 BURBUJAS MÁS PEQUEÑAS + EFECTO + NOMBRE */
+        .burbujas-flotantes {
+            position: fixed;
+            bottom: 20px;
+            right: 15px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .burbuja {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.4);
+            cursor: pointer;
+            position: relative;
+            animation: suave-parpadeo 2.5s infinite alternate;
+        }
+        @keyframes suave-parpadeo {
+            from { box-shadow: 0 0 5px rgba(255,255,255,0.3); }
+            to { box-shadow: 0 0 15px rgba(255,255,255,0.7); }
+        }
+        .burbuja:hover {
+            transform: scale(1.15);
+            animation: none;
+        }
+        /* Nombrecito al pasar */
+        .burbuja .etiqueta {
+            position: absolute;
+            right: 60px;
+            background: rgba(0,0,0,0.85);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+        .burbuja:hover .etiqueta { opacity: 1; }
+
+        .burbuja.chat { background: #25D366; }
+        .burbuja.yape { background: #9C27B0; }
+        .burbuja.paypal { background: #0070BA; }
+
+        /* 🟢 VENTANAS INTERNAS - BORDE MÁS ATRACTIVO */
+        .ventana-interna {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.75);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        .caja-ventana {
+            background: white;
+            width: 90%;
+            max-width: 420px;
+            max-height: 90vh;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 0 25px rgba(0,0,0,0.5);
+            border: 3px solid #ffcc66;
+        }
+        .cerrar-ventana {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            color: #333;
+            cursor: pointer;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .cerrar-ventana:hover { color: red; }
+        .contenido-ventana {
+            padding: 20px;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        .contenido-ventana iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        /* PIE DE PÁGINA MÁS COMPACTO */
+        .area-sociales {
+            background-color: black;
+            padding: 12px 0;
+            text-align: center;
+            width: 100%;
+        }
+        .iconos-sociales {
+            display: inline-block;
+        }
+        .iconos-sociales a {
+            margin: 4px;
+        }
     </style>
+    <script src="app.js" defer></script>
 </head>
+
 <body>
+    <div style="height:100vh">
+        <button type="button" class="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
+        <header id="header">
+            <section>
+                <nav class="nav-menu">
+                    <ul>
+                        <!-- ✅ MENÚ IZQUIERDO: AHORA VAN LAS REDES SOCIALES -->
+                        <p>Síguenos en nuestras redes</p>
+                        <li style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                            <a href="https://www.youtube.com/watch?v=g-Z2R9vUUBE" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png" alt="YouTube" width="38" height="38"></a>
+                            <a href="https://web.facebook.com/radiosunidasdelmundo" target="_blank"><img src="img/facebook.png" alt="Facebook" width="38" height="38"></a>
+                            <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png" alt="Instagram" width="38" height="38"></a>
+                            <a href="https://chat.whatsapp.com/I9mtoc2m77uCIDCa8XSYiN" target="_blank"><img src="img/whatsapp.png" alt="Grupo WhatsApp" width="38" height="38"></a>
+                            <a href="https://www.tiktok.com/@ecosiente.blogspot.com" target="_blank"><img src="img/tiktok.png" alt="TikTok" width="38" height="38"></a>
+                        </li>
 
-<button class="mobile-nav-toggle"><i class="fas fa-bars"></i></button>
-<header><nav class="nav-menu">
-    <ul>
-        <!-- ✅ REDES Y COMPARTIR: AHORA VERTICAL, MISMAS IMÁGENES, SIN CAMBIAR NADA -->
-        <p>Síguenos y Comparte</p>
-        <li style="display:flex; flex-direction:column; gap:10px; align-items:center;">
-            <a href="https://www.youtube.com/watch?v=g-Z2R9vUUBE" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png" alt="YouTube" width="40" height="40"></a>
-            <a href="https://web.facebook.com/radiosunidasdelmundo" target="_blank"><img src="img/facebook.png" alt="Facebook" width="40" height="40"></a>
-            <a href="https://www.instagram.com/" target="_blank"><img src="img/instagram.png" alt="Instagram" width="40" height="40"></a>
-            <a href="https://chat.whatsapp.com/I9mtoc2m77uCIDCa8XSYiN" target="_blank"><img src="img/whatsapp.png" alt="Grupo WhatsApp" width="40" height="40"></a>
-            <a href="https://www.tiktok.com/@ecosiente.blogspot.com" target="_blank"><img src="img/tiktok.png" alt="TikTok" width="40" height="40"></a>
+                        <p>Radios Unidas para el Mundo</p>
+                    </ul>
+                </nav>
+            </section>
+        </header>
 
-            <!-- COMPARTIR: MISMOS ENLACES, MISMA IMAGEN, AHORA VERTICAL -->
-            <a href="https://api.whatsapp.com/send?text=%c2%a1Hola!%20Te%20invito%20a%20escuchar%20RADIOS%20UNIDAS:%20https://radiosunidos.blogspot.com/" target="_blank">
-                <img src="img/compartirwhatsapp.png" alt="Compartir WhatsApp" style="width:140px;">
-            </a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://radiosunidos.blogspot.com/" target="_blank">
-                <img src="img/compartirfacebook.png" alt="Compartir Facebook" style="width:140px;">
-            </a>
-        </li>
-    </ul>
-</nav></header>
+        <div id="player"></div>
+        <center><iframe src="cel.html" width="100%" height="0" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe></center>
+    </div>
 
-<div id="player"></div>
-<center><iframe src="cel.html" width="100%" height="0" allowtransparency="true" allow="autoplay"></iframe></center>
-
-<!-- 🟢 BURBUJAS INTACTAS -->
-<div class="burbujas-flotantes">
-    <a class="burbuja" onclick="abrirVentana('chat');return false;"><i class="fas fa-comments"></i><span class="etiqueta">Chatear</span></a>
-    <a class="burbuja" onclick="abrirVentana('yape');return false;"><i class="fas fa-mobile-alt"></i><span class="etiqueta">Yape</span></a>
-    <a href="https://www.paypal.com/donate?business=fielangelo@gmail.com&currency_code=USD" target="_blank" class="burbuja"><i class="fab fa-paypal"></i><span class="etiqueta">PayPal</span></a>
-</div>
-
-<!-- 🪟 VENTANAS INTACTAS -->
-<div id="chat" class="ventana-interna" onclick="if(event.target==this)cerrarVentana('chat')">
-    <div class="caja-ventana"><span class="cerrar-ventana" onclick="cerrarVentana('chat')">&times;</span><div class="contenido-ventana"><iframe src="chat.html" width="100%" height="400" frameborder="0"></iframe></div></div>
-</div>
-<div id="yape" class="ventana-interna" onclick="if(event.target==this)cerrarVentana('yape')">
-    <div class="caja-ventana"><span class="cerrar-ventana" onclick="cerrarVentana('yape')">&times;</span><div class="contenido-ventana" style="text-align:center;">
-        <h3 style="color:#9C27B0;">Apoya con Yape</h3>
-        <img src="https://i.imgur.com/cvMmHiM.jpeg" style="width:220px; border-radius:8px; margin:10px 0;">
-        <p>930 282 895 - José Cutire Huayta</p>
-    </div></div>
-</div>
-
-<div id="installPopup">
-    <p>📻 Instala la aplicación</p>
-    <button onclick="instalar()">✅ Instalar</button>
-    <button onclick="cerrar()">❌ No</button>
-</div>
-
-<script>
-function abrirVentana(id){ document.getElementById(id).style.display='flex'; }
-function cerrarVentana(id){ document.getElementById(id).style.display='none'; }
-let promptInstalar;
-window.addEventListener('beforeinstallprompt', e=>{e.preventDefault(); promptInstalar=e; document.getElementById('installPopup').style.display='block';});
-function instalar(){ promptInstalar.prompt(); promptInstalar=null; document.getElementById('installPopup').style.display='none'; }
-$(".mobile-nav-toggle").click(function(){$("body").toggleClass("menu-abierto");});
-$("#player").lunaradio({stream:"TU_ENLACE_AQUI"});
-</script>
-
-<!-- ✅ PIE DE PÁGINA: SOLO 1 ÍCONO PEQUEÑO SIN TEXTO, MISMO ENLACE -->
-<footer style="background:#000; color:#fff; padding:10px; text-align:center; font-size:0.9rem;">
-    <a href="https://wa.me/51930282895" target="_blank" style="color:#ffcc66; font-weight:bold; text-decoration:none;">📻 RADIOS UNIDAS PARA EL MUNDO</a>
-    
-    <!-- SOLO ÍCONO DE COMPARTIR, JALA EL MISMO ENLACE -->
-    <div style="margin:8px 0;">
-        <a href="https://api.whatsapp.com/send?text=%c2%a1Hola!%20Te%20invito%20a%20escuchar%20RADIOS%20UNIDAS:%20https://radiosunidos.blogspot.com/" target="_blank" style="color:#fff; font-size:20px; text-decoration:none;">
-            <i class="fas fa-share-alt"></i>
+    <!-- 🟢 BURBUJAS: AHORA MÁS PEQUEÑAS + NOMBRE + EFECTO -->
+    <div class="burbujas-flotantes">
+        <a class="burbuja chat" onclick="abrirVentana('ventanaChat');return false;">
+            <i class="fas fa-comments"></i>
+            <span class="etiqueta">Chatear</span>
+        </a>
+        <a class="burbuja yape" onclick="abrirVentana('ventanaYape');return false;">
+            <i class="fas fa-mobile-alt"></i>
+            <span class="etiqueta">Yape</span>
+        </a>
+        <a href="https://www.paypal.com/donate?business=fielangelo@gmail.com&currency_code=USD" target="_blank" class="burbuja paypal">
+            <i class="fab fa-paypal"></i>
+            <span class="etiqueta">PayPal</span>
         </a>
     </div>
 
-    <p style="font-size:0.8rem; margin:0;">&copy; Todos los derechos reservados</p>
-</footer>
+    <!-- 🪟 VENTANAS INTERNAS -->
+    <div id="ventanaChat" class="ventana-interna" onclick="if(event.target==this)cerrarVentana('ventanaChat')">
+        <div class="caja-ventana">
+            <span class="cerrar-ventana" onclick="cerrarVentana('ventanaChat')">&times;</span>
+            <div class="contenido-ventana">
+                <iframe src="chat.html" title="Chat con nosotros"></iframe>
+            </div>
+        </div>
+    </div>
 
+    <div id="ventanaYape" class="ventana-interna" onclick="if(event.target==this)cerrarVentana('ventanaYape')">
+        <div class="caja-ventana">
+            <span class="cerrar-ventana" onclick="cerrarVentana('ventanaYape')">&times;</span>
+            <div class="contenido-ventana" style="text-align:center;">
+                <h2 style="color:#9C27B0;margin:0 0 15px 0;">💛 APOYO CON YAPE</h2>
+                <img src="https://i.imgur.com/cvMmHiM.jpeg" alt="QR Yape" style="width:260px;border-radius:12px;margin:10px 0;border:3px solid #9C27B0;">
+                <p style="font-size:16px;margin:8px 0;">Número: <strong>+51 930 282 895</strong></p>
+                <p style="font-size:16px;margin:8px 0;">A nombre: José Cutire Huayta</p>
+                <a href="yape.pe/930282895" style="display:inline-block;padding:10px 22px;background:#9C27B0;color:white;text-decoration:none;border-radius:25px;font-weight:bold;margin-top:10px;">Ir directo a Yape</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div id="installPopup">
+        <p>📱 Instala la aplicación en tu celular</p>
+        <button id="installAppButton">
+          <img src="img/img-instalar-app-android.png" alt="Instalar en Android" height="48">
+        </button>
+        <div id="iosInstructions" style="display:none;"></div>
+    </div>
+
+    <script>
+        // 🪟 ABRIR / CERRAR VENTANAS
+        function abrirVentana(id){ document.getElementById(id).style.display='flex'; }
+        function cerrarVentana(id){ document.getElementById(id).style.display='none'; }
+
+        // 🔒 PROTECCIÓN
+        document.addEventListener("contextmenu", e => { e.preventDefault(); alert('🔒 Contenido protegido - Radios Unidas'); });
+        document.onkeydown = e => {
+            if ([123, 73, 85].includes(e.keyCode) || (e.ctrlKey && e.shiftKey && e.keyCode==73)) { alert('🔒 No permitido'); return false; }
+        };
+
+        // 🎵 REPRODUCTOR
+        $("#player").lunaradio({
+           userinterface: "big", backgroundcolor: "rgba(0,17,59,1)", fontcolor: "#ffffff",
+           hightlightcolor: "#53012e", fontname: "Unica One", googlefont: "Unica+One&display=swap",
+           fontratio: "0.6", radioname: "RADIOS UNIDAS - PARA TODO EL MUNDO", scroll: "true",
+           coverimage: "img/logo.png", onlycoverimage: "false", coverstyle: "animated",
+           usevisualizer: "real", visualizertype: "2", itunestoken: "1000lIPN",
+           streamurl: "https://stream-04.surfernetwork.com/5b3fwcx4sfvuv?",
+           streamtype: "zeno", idzeno: "5b3fwcx4sfvuv", volume: "100",
+           autoplay: "true", debug: "false", usestreamcorsproxy: "true"
+        });
+
+        // 📲 PWA INTACTO
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', e => {
+            e.preventDefault(); deferredPrompt = e;
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('installPopup').style.display = 'block';
+        });
+        document.getElementById('installAppButton').addEventListener('click', async () => {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('installPopup').style.display = 'none';
+            if (deferredPrompt) { deferredPrompt.prompt(); deferredPrompt = null; }
+        });
+        document.getElementById('overlay').addEventListener('click', () => {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('installPopup').style.display = 'none';
+        });
+        function isIOS() { return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; }
+        if (isIOS()) { document.getElementById('installAppButton').style.display = 'none'; document.getElementById('iosInstructions').style.display = 'block'; }
+
+        // MENÚ
+        $(".mobile-nav-toggle").click(function () {
+            $("body").toggleClass("mobile-nav-active");
+            $(".mobile-nav-toggle i").toggleClass("fa-bars fa-times");
+        });
+    </script>
+
+    <!-- ✅ PIE DE PÁGINA: AHORA VA COMPARTIR + MÁS COMPACTO -->
+    <footer class="area-sociales">
+        <p style="color:#fff;margin-bottom:8px;font-weight:bold;font-size:14px;">Comparte con tus amigos</p>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a href="https://api.whatsapp.com/send?text=%c2%a1Hola!%20Te%20invito%20a%20escuchar%20RADIOS%20UNIDAS:%20https://radiosunidos.blogspot.com/" target="_blank" style="width:120px;">
+                <img src="img/compartirwhatsapp.png" class="pulse" style="width:100%; height:auto;" alt="Compartir en WhatsApp">
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://radiosunidos.blogspot.com/" target="_blank" style="width:120px;">
+                <img src="img/compartirfacebook.png" class="pulse" style="width:100%; height:auto;" alt="Compartir en Facebook">
+            </a>
+        </div>
+        <div style="background:#000;color:#fff;padding:6px;text-align:center;font-size:0.8rem;margin-top:8px;">
+            &copy; RADIOS UNIDAS - José Cutire Huayta
+        </div>
+    </footer>
 </body>
 </html>
