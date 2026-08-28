@@ -147,7 +147,7 @@
     <meta name="twitter:title" content="RADIOS UNIDAS PARA EL MUNDO">
     <meta name="twitter:description" content="Streaming oficial 24/7 – listo para integrar en cualquier emisora.">
 
-    <!-- 🛡️ PROTECCIÓN -->
+    <!-- 🛡️ PROTECCIÓN Y ESTILOS -->
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
         body{background:#0f0f1a;color:#fff;padding:20px;max-width:950px;margin:0 auto;
@@ -157,7 +157,6 @@
         h1{text-align:center;color:#ffbd2f;margin-bottom:10px;font-size:28px;}
         .subtitulo{text-align:center;color:#ccc;margin-bottom:20px;}
 
-        <!-- 📢 BOTONES DE REDES Y COMPARTIR -->
         .redes-superior{display:flex;justify-content:center;gap:12px;margin-bottom:25px;flex-wrap:wrap;}
         .btn-red{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;color:#fff;font-size:20px;transition:all .2s;text-decoration:none;}
         .btn-red:hover{transform:scale(1.15);box-shadow:0 0 15px rgba(255,189,47,0.4);}
@@ -168,7 +167,7 @@
         .ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);}
         .tw{background:#1DA1F2;}
         .compartir-grupo{display:flex;justify-content:center;gap:10px;margin-top:15px;flex-wrap:wrap;}
-        .btn-compartir{background:#ffbd2f;color:#000;padding:8px 14px;border-radius:20px;font-size:13px;font-weight:bold;}
+        .btn-compartir{background:#ffbd2f;color:#000;padding:8px 14px;border-radius:20px;font-size:13px;font-weight:bold;border:none;cursor:pointer;}
 
         .aviso{background:rgba(255,189,47,0.1);border-left:4px solid #ffbd2f;padding:12px;margin-bottom:25px;border-radius:8px;}
         .tarjeta{background:#1a1a2e;border-radius:12px;padding:20px;margin-bottom:20px;border-left:4px solid #ffbd2f;transition:transform .2s;}
@@ -197,16 +196,17 @@
 <h1>📻 ENLACES DE STREAMING - RADIOS UNIDAS</h1>
 <p class="subtitulo">Compatibles con Zara Radio, RadioVoz, RadioBOSS y todo software • Transmisión las 24 horas</p>
 
-<!-- 📢 REDES SOCIALES Y COMPARTIR -->
+<!-- 📢 REDES SOCIALES — ENLACES OFICIALES PUESTOS ✅ -->
 <div class="redes-superior">
-    <a href="#" class="btn-red fb" title="Síguenos en Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-    <a href="#" class="btn-red wa" title="Escríbenos por WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-    <a href="#" class="btn-red ig" title="Síguenos en Instagram"><i class="fa-brands fa-instagram"></i></a>
-    <a href="#" class="btn-red yt" title="Visita nuestro YouTube"><i class="fa-brands fa-youtube"></i></a>
-    <a href="#" class="btn-red tt" title="Síguenos en TikTok"><i class="fa-brands fa-tiktok"></i></a>
-    <a href="#" class="btn-red tw" title="Síguenos en Twitter"><i class="fa-brands fa-twitter"></i></a>
+    <a href="https://radiosunidas.github.io/play/enlazados.html" target="_blank" class="btn-red fb" title="Síguenos en Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="https://wa.me/51930282895?text=¡Hola! Vengo de Radios Unidas 📻" target="_blank" class="btn-red wa" title="Escríbenos por WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="https://radiosunidas.github.io/play/enlazados.html" target="_blank" class="btn-red ig" title="Síguenos en Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://radiosunidas.github.io/play/enlazados.html" target="_blank" class="btn-red yt" title="Visita nuestro YouTube"><i class="fa-brands fa-youtube"></i></a>
+    <a href="https://radiosunidas.github.io/play/enlazados.html" target="_blank" class="btn-red tt" title="Síguenos en TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    <a href="https://radiosunidas.github.io/play/enlazados.html" target="_blank" class="btn-red tw" title="Síguenos en Twitter"><i class="fa-brands fa-twitter"></i></a>
 </div>
 
+<!-- 📤 BOTONES COMPARTIR CORREGIDOS ✅ -->
 <div class="compartir-grupo">
     <button class="btn-compartir" onclick="compartir('fb')"><i class="fa-brands fa-facebook-f"></i> Compartir</button>
     <button class="btn-compartir" onclick="compartir('wa')"><i class="fa-brands fa-whatsapp"></i> Compartir</button>
@@ -274,15 +274,35 @@ function copiar(id){
     alert('✅ Enlace copiado correctamente');
 }
 
-// 📤 COMPARTIR EN REDES
-const MI_URL = encodeURIComponent('https://radiosunidas.github.io/play/enlazados.html');
-const MI_TEXTO = encodeURIComponent('📻 Radios Unidas: Señal oficial en vivo MP3 las 24 horas, para todas las emisoras y software de radio.');
+// 📤 FUNCIÓN COMPARTIR — ENLACE OFICIAL PUESTO ✅
+const MI_URL = 'https://radiosunidas.github.io/play/enlazados.html';
+const MI_TEXTO = '📻 Radios Unidas: Señal oficial en vivo MP3 las 24 horas, para todas las emisoras y software de radio.';
+const MI_WHATSAPP_NUM = '51930282895';
+
 function compartir(tipo){
+    const urlCodificada = encodeURIComponent(MI_URL);
+    const textoCodificado = encodeURIComponent(MI_TEXTO);
     let url = '';
-    if(tipo==='fb') url = `https://www.facebook.com/sharer/sharer.php?u=${https://radiosunidas.github.io/play/enlazados.html}`;
-    if(tipo==='wa') url = `https://wa.me/?text=${MI_TEXTO}%20${https://radiosunidas.github.io/play/enlazados.html}`;
-    if(tipo==='todo') navigator.share ? navigator.share({title:'Radios Unidas',text:MI_TEXTO,url:https://radiosunidas.github.io/play/enlazados.html}) : alert('Copia el enlace y compártelo: ' + decodeURIComponent(https://radiosunidas.github.io/play/enlazados.html));
-    window.open(url,'_blank','width=550,height=350');
+
+    if(tipo === 'fb'){
+        url = `https://www.facebook.com/sharer/sharer.php?u=${urlCodificada}`;
+        window.open(url,'_blank','width=550,height=350,scrollbars=yes');
+    }
+    else if(tipo === 'wa'){
+        url = `https://wa.me/${MI_WHATSAPP_NUM}?text=${textoCodificado}%20${urlCodificada}`;
+        window.open(url,'_blank','width=550,height=350');
+    }
+    else if(tipo === 'todo'){
+        if(navigator.share){
+            navigator.share({
+                title: 'Radios Unidas',
+                text: MI_TEXTO,
+                url: MI_URL
+            }).catch(err => console.log('Compartir cancelado'));
+        } else {
+            alert('📋 Copia y comparte:\n' + MI_TEXTO + '\n' + MI_URL);
+        }
+    }
 }
 </script>
 
